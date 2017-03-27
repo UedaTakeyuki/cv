@@ -3,13 +3,16 @@
 
 import numpy as np
 import cv2
+import sys
 
 #顔探索用のカスケード型分類器を取得
 #haarcascade_frontalface_default.xmlのパスを渡す 
-face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+face_cascade = cv2.CascadeClassifier("/home/pi/install/opencv-3.1.0/data/haarcascades/haarcascade_frontalface_default.xml")
 
-img = cv2.imread("2013-10-27 13.36.31.jpg")
-result = cv2.imread("2013-10-27 13.36.31.jpg")
+file = sys.argv[1]
+
+img = cv2.imread(file)
+result = cv2.imread(file)
 
 #読み込んだ画像をグレースケールに変換
 gray = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
