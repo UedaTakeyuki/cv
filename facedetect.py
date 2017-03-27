@@ -1,6 +1,5 @@
 #coding:utf-8
 
-import numpy as np
 import cv2
 import sys
 
@@ -11,7 +10,6 @@ face_cascade = cv2.CascadeClassifier("/home/pi/install/opencv-3.1.0/data/haarcas
 file = sys.argv[1]
 
 img = cv2.imread(file)
-result = cv2.imread(file)
 
 #読み込んだ画像をグレースケールに変換
 gray = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
@@ -29,7 +27,7 @@ if 0 < len(face):
       	pt1 = (int(x), int(y))
       	pt2 = (int((x + w)), int((y + h)))
       	cv2.rectangle(img, pt1, pt2, (255, 0, 0), 3, 8, 0)
-	cv2.imwrite("detectedface.jpg",img)
+    cv2.imwrite("detectedface.jpg",img)
 else:
 
     print "no face"
